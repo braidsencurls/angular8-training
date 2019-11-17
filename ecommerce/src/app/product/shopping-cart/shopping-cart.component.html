@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <tr>
+    <th>No.</th>
+    <th colspan="2">Product</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let shoppingCartItem of shoppingCart; let counter = index">
+    <td>{{ counter + 1 }}</td>
+    <td><img [src]="shoppingCartItem.product.photo" width="100" class="img-thumbnail"/></td>
+    <td>
+      <h4>{{shoppingCartItem.product.name}}</h4>
+      <p>{{shoppingCartItem.product.description}}</p>
+    </td>
+    <td>{{shoppingCartItem.product.price}}</td>
+    <td><input type="text" size="3" maxlength="3" name="requiredQuantity" #requiredQuantity [value]="shoppingCartItem.requiredQuantity"></td>
+    <td>
+      <button class="btn btn-primary" routerLink="/shoppingcartdetail/{{shoppingCartItem.id}}">View</button>
+      <button class="btn btn-primary" (click)="updateShoppingCartItem(shoppingCartItem, requiredQuantity.value)">Edit</button>
+      <button class="btn btn-danger" (click)="deleteShoppingCartItem(shoppingCartItem.id)">Delete</button>
+    </td>
+  </tr>
+</table>

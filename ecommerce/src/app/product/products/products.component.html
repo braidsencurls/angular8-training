@@ -1,0 +1,39 @@
+<div clas="container">
+  <div clas="row">
+    <div class="col-md-8">
+     <input type="text" class="form-control" id="search" name="search"(keyup)="doSearch($event)">
+    </div>
+    <div class="col-md-2">
+      <span>Cart {{shoppingCart.length}}</span>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-secondary" *ngIf="!galleryView" (click)="changeView()">Gallery</button>
+      <button class="btn btn-secondary" *ngIf="galleryView" (click)="changeView()">List</button>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+<!-- Gallery View -->
+<div class="row" *ngIf="galleryView">
+  <div class="col-md-3" *ngFor="let product of products" style="padding-bottom: 20px;">
+   <app-product [product]="product" [view]="'gallery'" (notify)="addToCart($event)"></app-product>
+  </div>
+</div>
+
+<!-- List View -->
+
+<div class="row" *ngIf="!galleryView">
+  <table class="table table-bordered">
+    <tr>
+      <th>No.</th>
+      <th [attr.colspan]="productcolspan">Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let product of products; let counter = index">
+      <app-product [product]="product" [counter]="counter"  [view]="'list'" (notify)="addToCart($event)"></app-product>
+    </tr>
+  </table>
+</div>

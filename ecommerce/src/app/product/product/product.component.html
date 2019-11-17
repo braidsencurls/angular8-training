@@ -1,0 +1,34 @@
+<div class="card" *ngIf="view==='gallery'">
+  <img class="card-img-top" [src]="product.photo"/>
+  <div class="card-body">
+    <h4 class="card-title">{{product.name}}</h4>
+    <p class="card-text">{{product.description}}</p>
+    <h5 [class.lessquantity]="(product.quantity <= 20) ? true : false">Quantity: {{product.quantity}}</h5>
+    <h5 [style.color]="(product.price < 1000) ? 'green' : (product.price < 4000) ? 'blue' : 'red'">Price: {{product.price | currency:"RM"}}</h5>
+    <h5 [ngClass]="{
+          'from-us':product.source === 'US',
+          'from-my':product.source === 'MY',
+          'from-ph':product.source === 'PH'
+            }">Source: {{product.source}}</h5>
+    <input type="text" name="quantity" id="quantity" #quantity size="3" maxlength="3"/>&nbsp;
+    <button class="btn btn-primary" [disabled]="(product.quantity <= 20) ? true : false"
+            (click)="addToCart(product, quantity.value)">Add To Cart</button>
+  </div>
+</div>
+
+  <ng-container *ngIf="view==='list'">
+    <td>{{counter + 1}}</td>
+    <td><img class="img-thumbnail" [src]="product.photo"/></td>
+    <td>
+      <h4>{{product.name}}</h4>
+      <h4>{{product.description}}</h4>
+      <h4>{{product.source}}</h4>
+    </td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.price}}</td>
+    <td>
+      <button class="btn  btn-primary" [disabled]="(product.quantity <= 20) ? true : false"
+              (click)="addToCart()">Add To Cart</button>
+    </td>
+  </ng-container>
+

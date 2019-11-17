@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-body" *ngIf="registration">
+    <h2 class="card-title">{{appTitle | myDecorator:":)"}}</h2>
+    <hr/>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" id="fistname" name="firstname" [(ngModel)]="user.firstname" placeholder="First Name">
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" id="lastname"  name="lastname" [(ngModel)]="user.lastname" placeholder="Last Name">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" id="email"  name="email" [(ngModel)]="user.email" placeholder="First Name">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" id="password"  name="password" [(ngModel)]="user.password" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success" (click)="doSave()">Save</button>
+    </div>
+  </div>
+
+  <div class="card-body" *ngIf="!registration">
+    <h2 class="card-title">Registration</h2>
+    <hr/>
+    <div class="form-group">
+      <label>First Name</label><br/>
+      <label>{{user.firstname}}</label>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label><br/>
+      <label>{{user.lastname}}</label>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label><br/>
+      <label>{{user.email}}</label>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label><br/>
+      <label>{{user.password}}</label>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-secondary" (click)="doCancel()">Cancel</button>
+    </div>
+  </div>
+</div>

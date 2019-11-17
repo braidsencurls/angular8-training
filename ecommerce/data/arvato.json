@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Television",
+      "description": "To Watch",
+      "quantity": 10,
+      "price": 1200,
+      "source": "MY",
+      "photo": "https://i.ebayimg.com/images/g/LwEAAOSwsrlcEiC2/s-l300.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Radio",
+      "description": "To Listen",
+      "quantity": 25,
+      "price": 500,
+      "source": "US",
+      "photo": "https://e.snmc.io/i/300/w/309ec5c209d2f6a6dffffa9783fe086c/6205368"
+    },
+    {
+      "id": 3,
+      "name": "Laptop",
+      "description": "To Do Home Work",
+      "quantity": 15,
+      "price": 5000,
+      "source": "PH",
+      "photo": "https://images-eu.ssl-images-amazon.com/images/I/41AYqFU2kGL._SX300_QL70_.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Hand Phone",
+      "description": "To Do Work",
+      "quantity": 10,
+      "price": 1300,
+      "source": "US",
+      "photo": "https://image.made-in-china.com/43f34j00iNOQELUcCPqJ/6-0inch-1500mAh-Smart-Mobile-Phone-Model-K1.jpg"
+    }
+  ],
+  "registrations": [],
+  "shoppingCart": [
+    {
+      "id": 1,
+      "product": {
+        "id": 2,
+        "name": "Radio",
+        "description": "To Listen",
+        "quantity": 25,
+        "price": 500,
+        "source": "US",
+        "photo": "https://e.snmc.io/i/300/w/309ec5c209d2f6a6dffffa9783fe086c/6205368"
+      },
+      "requiredQuantity": "10"
+    }
+  ]
+}

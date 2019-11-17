@@ -1,0 +1,82 @@
+<div *ngIf="listView">
+  <div style="text-align: right; padding-bottom: 10px">
+    <button class="btn btn-primary" (click)="createForm()">New</button>
+  </div>
+  <table class="table table-bordered">
+    <tr>
+      <th>No.</th>
+      <th colspan="2">Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let product of products; let counter = index">
+      <td>{{ counter + 1 }}</td>
+      <td><img [src]="product.photo" width="100" class="img-thumbnail"/></td>
+      <td>
+        <h4>{{product.name}}</h4>
+        <p>{{product.description}}</p>
+        <p>{{product.source}}</p>
+      </td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="!listView">
+  <div class="card">
+    <form [formGroup]="productForm" *ngIf="productForm">
+      <div class="card-body">
+        <h2 class="card-title">Create Product</h2>
+        <hr/>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" id="name" name="name" formControlName="name"
+                 placeholder="Name"/>
+          <div *ngIf="productForm.controls['name'].errors == 'required'">
+            Product Name is cumpolsary
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" id="description" name="description" formControlName="description"
+                 placeholder="Description"/>
+        </div>
+
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" formControlName="quantity"
+                 placeholder="Quantity"/>
+        </div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number" class="form-control" id="price" name="price" formControlName="price"
+                 placeholder="Price"/>
+        </div>
+
+        <div class="form-group">
+          <label>Source</label>
+          <input type="text" class="form-control" id="source" name="source" formControlName="source"
+                 placeholder="Source"/>
+        </div>
+
+        <div class="form-group">
+          <label>Photo</label>
+          <input type="text" class="form-control" id="photo" name="photo" formControlName="photo" placeholder="Photo"/>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success" (click)="doSave(productForm.value)" [disabled]="!productForm.valid">Save
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

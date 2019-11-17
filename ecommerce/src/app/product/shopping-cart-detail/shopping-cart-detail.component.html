@@ -1,0 +1,12 @@
+<div class="card">
+  <img class="card-img-top" [src]="shoppingCartItem.product.photo"/>
+  <div class="card-body">
+    <h4 class="card-title">{{shoppingCartItem.product.name}}</h4>
+    <p class="card-text">{{shoppingCartItem.product.description}}</p>
+    <h5>Required Quantity: {{shoppingCartItem.requiredQuantity}}</h5>
+    <h5>Price: {{shoppingCartItem.product.price}}</h5>
+    <h5>Source: {{shoppingCartItem.product.source}}</h5>
+    <button class="btn btn-primary" routerLink="/shoppingcart">Back</button>
+  </div>
+</div>
+
